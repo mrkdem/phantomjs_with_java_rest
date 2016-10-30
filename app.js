@@ -92,7 +92,6 @@ app.post('/generate-pdf-from-data', bodyParser.text({type:'text/plain'}), (req, 
 app.post('/generate-pdf-from-data-and-dot-template', bodyParser.json(), (req, res) => {
   var tempFn = dot.template(req.body.html);
   var generatedHtml = tempFn({data: req.body.data});
-//  res.write(generatedHtml);
   res.end(generatedHtml);
   conversion({
     html: generatedHtml,
